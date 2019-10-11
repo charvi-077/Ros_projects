@@ -45,7 +45,7 @@ def callback(state_data):
    uav_mode = state_data.mode
    pub.publish(uav_mode)    
 
-def maini():
+def main():
   global pub
   rospy.init_node('mav_uav')
   pub=rospy.Publisher("/uav_mode",String,10)
@@ -54,8 +54,8 @@ def maini():
   while not rospy.is_shutdown():
     sub = rospy.Subscriber("/mavros/state",State,callback)  
     rate.sleep()
-if __name__ == '__main__':
-    maini()
+if __name__ == '__main__':cd 
+    main()
 
 
 
