@@ -3,9 +3,9 @@
  #Method 1 of publishing the mode ,where msg type is STATE
 import rospy
 from mavros_msgs.msg import State
-global pub
+
 def callback(data):
-  global pub
+  global pub_data
   rospy.loginfo(data.mode)
   pub_data=data # in this the time stamp will also publish
 # pub_data=State # in this no time stamp will be publish
@@ -25,14 +25,11 @@ def mavros_state_subscriber():
    sub = rospy.Subscriber("/mavros/state",State,callback)
    rospy.spin()
 
-
-
-
-
 if __name__ == '__main__':
   while not rospy.is_shutdown():
     mavros_state_subscriber()
 '''
+
 #########################################################################
 #Method 2 of publishing the mode ,where Msg type is String
 
@@ -54,8 +51,8 @@ def main():
   while not rospy.is_shutdown():
     sub = rospy.Subscriber("/mavros/state",State,callback)  
     rate.sleep()
-if __name__ == '__main__':cd 
-    main()
+if __name__ == '__main__':
+  main()
 
 
 
