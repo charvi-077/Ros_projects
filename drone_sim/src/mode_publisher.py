@@ -45,14 +45,18 @@ def callback(state_data):
 def main():
   global pub
   rospy.init_node('mav_uav')
-  pub=rospy.Publisher("/uav_mode",String,10)
+  pub=rospy.Publisher("/uav_mode",String,queue_size=10)
   rate = rospy.Rate(2)
 
   while not rospy.is_shutdown():
     sub = rospy.Subscriber("/mavros/state",State,callback)  
     rate.sleep()
 if __name__ == '__main__':
+<<<<<<< HEAD
   main()
+=======
+    main()
+>>>>>>> 8448f5b1a49bcc3a2798a219aae6f4aee1e6e601
 
 
 
