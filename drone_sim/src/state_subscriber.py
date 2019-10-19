@@ -4,7 +4,7 @@ import rospy
 from mavros_msgs.msg import State
 
 def callback(data):
-  rospy.loginfo(data.mode)
+  rospy.loginfo(data)
 
 
 

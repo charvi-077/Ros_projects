@@ -41,7 +41,7 @@ from mavros_msgs.msg import State
 def callback(state_data):
    uav_mode = state_data.mode
    pub.publish(uav_mode)    
-
+   rospy.loginfo(uav_mode)
 def main():
   global pub
   rospy.init_node('mav_uav')
@@ -52,15 +52,4 @@ def main():
     sub = rospy.Subscriber("/mavros/state",State,callback)  
     rate.sleep()
 if __name__ == '__main__':
-<<<<<<< HEAD
   main()
-=======
-    main()
->>>>>>> 8448f5b1a49bcc3a2798a219aae6f4aee1e6e601
-
-
-
-
-
-
-
